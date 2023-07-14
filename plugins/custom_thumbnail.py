@@ -83,7 +83,7 @@ async def delete_thumbnail(bot, update):
     await bot.send_message(
         chat_id=update.chat.id,
         text=Translation.DEL_ETED_CUSTOM_THUMB_NAIL,
-        reply_to_message_id=update.message_id
+        reply_to_message_id=update.reply_to_message_id
     )
 
 
@@ -112,7 +112,7 @@ async def show_thumb(bot, update):
             await bot.send_photo(
                 chat_id=update.chat.id,
                 photo=thumb_image_path,
-                reply_to_message_id=update.message_id
+                reply_to_message_id=update.reply_to_message_id
             )
         except:
             pass
