@@ -98,7 +98,7 @@ async def rename_doc(bot, update):
         a = await bot.send_message(
         chat_id=update.chat.id,
         text=Translation.DOWNLOAD_START,
-        reply_to_message_id=update.message_id
+        reply_to_message_id=update.reply_to_message_id
         )
         c_time = time.time()
         the_real_download_location = await bot.download_media(
