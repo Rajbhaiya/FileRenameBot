@@ -2,10 +2,10 @@ import os
 
 class Config(object):
     # get a token from @BotFather
-    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "")
+    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "6113104447:AAHHE56nNSAQEr6KBbCN4vNEwNjki_8q7ZY")
     # The Telegram API things
-    APP_ID = int(os.environ.get("APP_ID", 12345))
-    API_HASH = os.environ.get("API_HASH")
+    APP_ID = int(os.environ.get("APP_ID", 13675555))
+    API_HASH = os.environ.get("API_HASH", "c0da9c346d2c45dbc7ec49a05da9b2b6")
     # Update channel for Force Subscribe
     UPDATE_CHANNEL = os.environ.get("UPDATE_CHANNEL", "")
     # log channel
@@ -38,5 +38,5 @@ class Config(object):
     # watermark file
     DEF_WATER_MARK_FILE = ""
     # Database url
-    DB_URI = os.environ.get("DATABASE_URL", "")
+    DB_URI = os.environ.get("DATABASE_URL", "postgres://kkktawwp:c9JreackKuiGxphwp0jDXlPilw4SFKLv@mouse.db.elephantsql.com/kkktawwp")
     
