@@ -79,13 +79,13 @@ async def convert_to_video(bot, update):
             await bot.edit_message_text(
                 text=Translation.SAVED_RECVD_DOC_FILE,
                 chat_id=update.chat.id,
-                message_id=a.message_id
+                message_id=a.reply_to_message_id
             )
             # don't care about the extension
            # await bot.edit_message_text(
               #  text=Translation.UPLOAD_START,
              #   chat_id=update.chat.id,
-            #    message_id=a.message_id
+            #    message_id=a.reply_to_message_id
           #  )
             logger.info(the_real_download_location)
             # get the correct width, height, and duration for videos greater than 10MB
@@ -151,7 +151,7 @@ async def convert_to_video(bot, update):
             await bot.edit_message_text(
                 text=Translation.AFTER_SUCCESSFUL_UPLOAD_MSG,
                 chat_id=update.chat.id,
-                message_id=a.message_id,
+                message_id=a.reply_to_message_id,
                 disable_web_page_preview=True
             )
     else:
