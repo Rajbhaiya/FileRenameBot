@@ -189,7 +189,7 @@ async def rename_doc(bot, update):
        )
 
 @Mai_bOTs.on_message(pyrogram.filters.command(["vrename"]))
-async def rename_doc(bot, update):
+async def rename_vid(bot, update):
     update_channel = Config.UPDATE_CHANNEL
     if update_channel:
         try:
@@ -261,7 +261,7 @@ async def rename_doc(bot, update):
             if not os.path.exists(thumb_image_path):
                 mes = await thumb(update.from_user.id)
                 if mes != None:
-                    m = await bot.get_messages(update.chat.id, mes.message_ids)
+                    m = await bot.get_messages(update.chat.id, mes.message_id)
                     await m.download(file_name=thumb_image_path)
                     thumb_image_path = thumb_image_path
                 else:
