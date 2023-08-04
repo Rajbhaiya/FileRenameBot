@@ -295,8 +295,8 @@ async def rename_vid(bot, update):
             await bot.send_video(
                 chat_id=update.chat.id,
                 video=new_file_name,
-                thumb=thumb_image_path,
                 duration=duration,
+                thumb=thumb_image_path,
                 caption=f"{caption_text2}",
                 parse_mode = "html",
                 supports_streaming=True,
