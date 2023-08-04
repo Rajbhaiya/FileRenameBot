@@ -262,7 +262,7 @@ async def rename_vid(bot, update):
             width = 0
             height = 0
             duration = 0
-            metadata = extractMetadata(createParser(thumb_image_path))
+            metadata = extractMetadata(createParser(download_location))
             if metadata.has("duration"):
                 duration = metadata.get('duration').seconds
             thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
