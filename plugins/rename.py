@@ -128,43 +128,33 @@ async def rename_doc(bot, update):
                 message_id=a.message_id
                 )
             logger.info(the_real_download_location)
-            # get the correct width, height, and duration for videos greater than 10MB
-            # ref: message from @BotSupport
-            width = 0
-            height = 0
-            duration = 0
-            metadata = extractMetadata(createParser(the_real_download_location))
-            if metadata.has("duration"):
-                duration = metadata.get('duration').seconds
             thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
             if not os.path.exists(thumb_image_path):
-                thumb_image_path = await take_screen_shot(
-                    the_real_download_location,
-                    os.path.dirname(the_real_download_location),
-                    random.randint(
-                        0,
-                        duration - 1
-                    )
-                )
-            logger.info(thumb_image_path)
-            # 'thumb_image_path' will be available now
-            metadata = extractMetadata(createParser(thumb_image_path))
-            if metadata.has("width"):
-                width = metadata.get("width")
-            if metadata.has("height"):
-                height = metadata.get("height")
-            # get the correct width, height, and duration for videos greater than 10MB
-            # resize image
-            # ref: https://t.me/PyrogramChat/44663
-            # https://stackoverflow.com/a/21669827/4723940
-            Image.open(thumb_image_path).convert("RGB").save(thumb_image_path)
-            img = Image.open(thumb_image_path)
-            # https://stackoverflow.com/a/37631799/4723940
-            # img.thumbnail((90, 90))
-            img.resize((90, height))
-            img.save(thumb_image_path, "JPEG")
-            # https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#create-thumbnails
-            # try to upload file
+                mes = await thumb(update.from_user.id)
+                if mes != None:
+                    m = await bot.get_messages(update.chat.id, mes.msg_id)
+                    await m.download(file_name=thumb_image_path)
+                    thumb_image_path = thumb_image_path
+                else:
+                    thumb_image_path = None
+            else:
+                width = 0
+                height = 0
+                metadata = extractMetadata(createParser(thumb_image_path))
+                if metadata.has("width"):
+                    width = metadata.get("width")
+                if metadata.has("height"):
+                    height = metadata.get("height")
+                # resize image
+                # ref: https://t.me/PyrogramChat/44663
+                # https://stackoverflow.com/a/21669827/4723940
+                Image.open(thumb_image_path).convert("RGB").save(thumb_image_path)
+                img = Image.open(thumb_image_path)
+                # https://stackoverflow.com/a/37631799/4723940
+                # img.thumbnail((90, 90))
+                img.resize((320, height))
+                img.save(thumb_image_path, "JPEG")
+                # https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#create-thumbnails
             c_time = time.time()
             await bot.send_document(
                 chat_id=update.chat.id,
@@ -267,40 +257,43 @@ async def rename_vid(bot, update):
                 message_id=a.message_id
                 )
             logger.info(the_real_download_location)
+            # get the correct width, height, and duration for videos greater than 10MB
+            # ref: message from @BotSupport
+            width = 0
+            height = 0
+            duration = 0
+            metadata = extractMetadata(createParser(the_real_download_location))
+            if metadata.has("duration"):
+                duration = metadata.get('duration').seconds
             thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
             if not os.path.exists(thumb_image_path):
-                mes = await thumb(update.from_user.id)
-                if mes != None:
-                    m = await bot.get_messages(update.chat.id, mes.msg_id)
-                    await m.download(file_name=thumb_image_path)
-                    thumb_image_path = thumb_image_path
-            else:
-                width = 0
-                height = 0
-                duration = 0
-                metadata = extractMetadata(createParser(the_real_download_location))
-                if metadata.has("duration"):
-                    duration = metadata.get('duration').seconds
-                thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
-                if not os.path.exists(thumb_image_path):
-                    thumb_image_path = await take_screen_shot(
-                      the_real_download_location,
-                      os.path.dirname(the_real_download_location),
-                      random.randint(
-                          0,
-                          duration - 1
-                       )
+                thumb_image_path = await take_screen_shot(
+                    the_real_download_location,
+                    os.path.dirname(the_real_download_location),
+                    random.randint(
+                        0,
+                        duration - 1
                     )
-                logger.info(thumb_image_path)
-                metadata = extractMetadata(createParser(thumb_image_path))
-                if metadata.has("width"):
-                    width = metadata.get("width")
-                if metadata.has("height"):
-                    height = metadata.get("height")
-                Image.open(thumb_image_path).convert("RGB").save(thumb_image_path)
-                img = Image.open(thumb_image_path)
-                img.resize((90, height))
-                img.save(thumb_image_path, "JPEG")
+                )
+            logger.info(thumb_image_path)
+            # 'thumb_image_path' will be available now
+            metadata = extractMetadata(createParser(thumb_image_path))
+            if metadata.has("width"):
+                width = metadata.get("width")
+            if metadata.has("height"):
+                height = metadata.get("height")
+            # get the correct width, height, and duration for videos greater than 10MB
+            # resize image
+            # ref: https://t.me/PyrogramChat/44663
+            # https://stackoverflow.com/a/21669827/4723940
+            Image.open(thumb_image_path).convert("RGB").save(thumb_image_path)
+            img = Image.open(thumb_image_path)
+            # https://stackoverflow.com/a/37631799/4723940
+            # img.thumbnail((90, 90))
+            img.resize((90, height))
+            img.save(thumb_image_path, "JPEG")
+            # https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#create-thumbnails
+            # try to upload file
             c_time = time.time()
             await bot.send_video(
                 chat_id=update.chat.id,
