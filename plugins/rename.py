@@ -270,7 +270,7 @@ async def rename_vid(bot, update):
             thumb_image_path = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + ".jpg"
             if not os.path.exists(thumb_image_path):
                 thumb_image_path = await take_screen_shot(
-                    download_location,
+                    new_file_name,
                     os.path.dirname(download_location),
                     random.randint(
                         0,
