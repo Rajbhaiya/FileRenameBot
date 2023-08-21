@@ -18,7 +18,7 @@ class Translation(object):
     IFLONG_FILE_NAME = """You Gotta Be Kidding Me...Decrease The Number Of Letters😆😉"""
     ABOUT_ME = """<b>Meh : \n An Telegram File Renamer Bot Which Can Rename A Telegram Files. \n You Can Set Permanent Thumbnail For The File So You Don't Have To Send Custom Thumbs All The Time.\n \n i can also convert files into videos \n Feedback @cant_think_1 If You Found Meh Useful</b>"""
     HELP_USER = """Checkout The Available Commands Here \n\n Do Follow @Wizard_Bots If You Find This Bot Usefull❤️"""
-    RENAME_HELP = """Here are The Available Commands In Reanme \n\n\n▪️ <code>/rename</code> : Reply To An File/video With <code>/rename Filename.extension</code> For Renaming"""
+    RENAME_HELP = """Here are The Available Commands In Reanme \n\n\n▪️ <code>/drename</code> : Reply To A file/video/audio/pdf/etc. If You Want Output As Document File.\n\n▪️ <code>/vrename</code> Reply To A Video File If Want As Streamable/meadia FileFor Renaming"""
     C2V_HELP = """Here Are The Available Commands In File To Video \n\n\n ▪️<code>/c2v</code> : Reply To An File With /c2v To Convert It Into Video"""
     THUMBNAIL_HELP = """Here Are The Available Commands In Custom Thumbnail \n\n\n ▪️ Send A Photo To Set The Custom Thumbnail \n▪️ <code>/showthumb</code> : For Checking The Current Thumbnail \n▪️<code>/delthumb</code> : For Deleting The Current Saved Thumbnail"""
     CCAPTION_HELP = """Here Are The Available Commands In Custom Caption \n\n\n ▪️<code>/scaption</code> Use This Command To Save Your Custom Caption \n<b>Usage:</b> <code>/scaption your caption text</code> \n\n<b>[You Can Use</b> <code>{filename}</code> <b>For showing new file name in the caption]</b> """
