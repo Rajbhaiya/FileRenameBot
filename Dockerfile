@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM python:3.9.4
 
 
 RUN mkdir ./app
