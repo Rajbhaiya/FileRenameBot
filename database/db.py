@@ -7,7 +7,7 @@ import os
 import threading
 import asyncio
 
-from sqlalchemy import Column, Integer, Boolean, String, ForeignKey, UniqueConstraint, func
+from sqlalchemy import Column, Integer, Boolean, String, ForeignKey, UniqueConstraint, func, BigInteger
 
 
 from config import Config
@@ -27,7 +27,7 @@ INSERTION_LOCK = threading.RLock()
 
 class custom_caption(BASE):
     __tablename__ = "caption"
-    id = Column(Integer, primary_key=True)
+    id = Column(BigInteger, primary_key=True)
     caption = Column(String)
     
     def __init__(self, id, caption):
