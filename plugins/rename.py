@@ -93,7 +93,7 @@ async def rename_doc(bot, update):
         download_location = Config.DOWNLOAD_LOCATION + "/"
         caption_text = await get_caption(update.from_user.id)
         try:
-           caption_text2 = caption_text.caption.format(filename = file_name)
+           caption_text2 = f"<b>caption_text.caption.format(filename = file_name)</b>"
         except:
            caption_text2 =f"<b>{file_name}</b>"
            pass 
@@ -222,7 +222,7 @@ async def rename_vid(bot, update):
         download_location = Config.DOWNLOAD_LOCATION + "/"
         caption_text = await get_caption(update.from_user.id)
         try:
-           caption_text2 = caption_text.caption.format(filename = file_name)
+           caption_text2 = f"<b>caption_text.caption.format(filename = file_name)</b>"
         except:
            caption_text2 =f"<b>{file_name}</b>"
            pass 
